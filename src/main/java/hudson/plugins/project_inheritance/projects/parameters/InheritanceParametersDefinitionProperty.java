@@ -47,6 +47,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -178,7 +179,7 @@ public class InheritanceParametersDefinitionProperty extends
 	public InheritanceParametersDefinitionProperty(
 			AbstractProject<?,?> owner,
 			List<ParameterDefinition> parameterDefinitions) {
-		super(copyAndSortParametersByName(parameterDefinitions));
+		super(parameterDefinitions);
 		
 		//Save the final owner that created this IPDP
 		this.owner = owner;
@@ -226,8 +227,8 @@ public class InheritanceParametersDefinitionProperty extends
 		}
 		
 		//Then, we merge their ParameterDefinitions based on their name
-		HashMap<String, ParameterDefinition> unifyMap =
-				new HashMap<String, ParameterDefinition>();
+		Map<String, ParameterDefinition> unifyMap =
+				new LinkedHashMap<String, ParameterDefinition>();
 		for (int i = pdps.length-1; i >= 0; i--) {
 			ParametersDefinitionProperty pdp = pdps[i];
 			for (ParameterDefinition pd : pdp.getParameterDefinitions()) {
