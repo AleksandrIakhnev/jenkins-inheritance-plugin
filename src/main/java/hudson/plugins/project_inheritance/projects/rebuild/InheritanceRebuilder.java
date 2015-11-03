@@ -54,8 +54,8 @@ public class InheritanceRebuilder extends RunListener<InheritanceBuild> {
 		ParametersAction p = build.getAction(ParametersAction.class);
 		if (p != null) {
 			//It had, so we add an action to rebuild everything to it
-			InheritanceRebuildAction rebuildAction = new InheritanceRebuildAction();
-			build.getActions().add(rebuildAction);
+			//InheritanceRebuildAction rebuildAction = new InheritanceRebuildAction();
+			//build.getActions().add(rebuildAction);
 		}
 	}
 }
