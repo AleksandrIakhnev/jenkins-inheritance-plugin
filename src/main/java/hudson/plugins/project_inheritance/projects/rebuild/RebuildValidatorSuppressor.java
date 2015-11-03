@@ -40,7 +40,7 @@ public class RebuildValidatorSuppressor extends RebuildValidator {
 	@SuppressWarnings("rawtypes")
 	public boolean isApplicable(AbstractBuild build) {
 		if (build instanceof InheritanceBuild) {
-			return true;
+			return false;
 		}
 		return false;
 	}
